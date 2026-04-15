@@ -20,9 +20,15 @@ const TodoDataSlice = createSlice({
     reducers:{
         addData:(state,action)=>{
             state.value.push(action.payload)
+        },
+        updateStatus:(state,action)=>{
+            const todo = state.value.find( t => t.id === action.payload);
+            if(todo){
+                todo.status = "green"
+            }
         }
     }
 })
 
-export const {addData} = TodoDataSlice.actions;
+export const {addData,updateStatus} = TodoDataSlice.actions;
 export default TodoDataSlice.reducer;
