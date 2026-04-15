@@ -1,7 +1,11 @@
 import { useDispatch } from "react-redux"
 import { addData } from "../utils/TodoDataSlice"
 
-const Btn = ({input}) => {
+interface btmprops{
+  input: string
+}
+
+const Btn = ({input} : btmprops) => {
   const dispatch = useDispatch()
   
   const handleClick = ()=>{

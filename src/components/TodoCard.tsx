@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux"
+import type { Todo } from "../utils/TodoDataSlice"
 
 function TodoCard() {
 
@@ -10,7 +11,7 @@ function TodoCard() {
         todoData.length === 0 ? (
           <p>Enter Todos</p>
         ):(
-          todoData.map((todo)=>(
+          todoData.map((todo : Todo)=>(
             <div key={todo.id} >
               <p>{todo.text}</p>              
             </div>
