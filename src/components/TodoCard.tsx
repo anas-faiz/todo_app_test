@@ -23,7 +23,7 @@ function TodoCard() {
                 type="checkbox"
                 checked={todo.status == "green"}
                 className="m-1" 
-                onClick={()=>handleClick(todo.id)} />
+                onChange={()=>handleClick(todo.id)} />
                 <p className={todo.status == "green" ? "line-through text-gray-400" : ""} >
                   {todo.text}
                   </p>              
