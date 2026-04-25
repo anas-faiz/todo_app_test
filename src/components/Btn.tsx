@@ -3,7 +3,7 @@ import { addData } from "../utils/TodoDataSlice"
 
 interface btmprops{
   input: string
-  setInput: ()=> void
+  setInput: React.Dispatch<React.SetStateAction<string>>
 }
 
 const Btn = ({input,setInput} : btmprops) => {
