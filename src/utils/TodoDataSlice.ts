@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
- export interface Todo{
+export interface Todo{
     id: number,
     text:string,
     status: "green" | "red"
@@ -36,5 +36,5 @@ const TodoDataSlice = createSlice({
     }
 })
 
-export const {addData,updateStatus} = TodoDataSlice.actions;
+export const {addData,updateStatus,removeTodo} = TodoDataSlice.actions;
 export default TodoDataSlice.reducer;

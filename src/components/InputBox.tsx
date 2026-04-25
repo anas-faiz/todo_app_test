@@ -8,7 +8,7 @@ function InputBox() {
         <label>Add work:</label>
         <div>
         <input className="border p-1 m-1" value={input} onChange={(e)=>(setInput(e.target.value))} />
-        <Btn input={input}/>
+        <Btn input={input} setInput={setInput}/>
         </div>
     </div>
   )

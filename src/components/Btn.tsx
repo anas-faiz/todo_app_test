@@ -3,14 +3,16 @@ import { addData } from "../utils/TodoDataSlice"
 
 interface btmprops{
   input: string
+  setInput: ()=> void
 }
 
-const Btn = ({input} : btmprops) => {
+const Btn = ({input,setInput} : btmprops) => {
   const dispatch = useDispatch()
   
   const handleClick = ()=>{
     dispatch(addData({id:Date.now(), text: input, status: "red"}))
     console.log("clicked")
+    setInput("")
   }  
   return (
     <div>

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { updateStatus, type Todo } from "../utils/TodoDataSlice"
+import { removeTodo, updateStatus, type Todo } from "../utils/TodoDataSlice"
 
 function TodoCard() {
 
@@ -10,6 +10,10 @@ function TodoCard() {
     dispatch(updateStatus(id));
   }
 
+  const handleRemoveClick = (id: number)=>{
+    dispatch(removeTodo(id))
+  }
+
   return (
     <div>
       {
@@ -18,7 +22,7 @@ function TodoCard() {
         ):(
           todoData.map((todo : Todo)=>(
             <div key={todo.id} >
-              <div className="flex">
+              <div className="flex items-center p-1">
                 <input 
                 type="checkbox"
                 checked={todo.status == "green"}
@@ -26,7 +30,8 @@ function TodoCard() {
                 onChange={()=>handleClick(todo.id)} />
                 <p className={todo.status == "green" ? "line-through text-gray-400" : ""} >
                   {todo.text}
-                  </p>              
+                  </p> 
+                  <span className="p-1 ml-1 border hover: cursor-pointer" onClick={()=>handleRemoveClick(todo.id)}>Remove</span>             
               </div>
             </div>
           ))
