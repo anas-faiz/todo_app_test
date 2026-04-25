@@ -10,9 +10,14 @@ const Btn = ({input,setInput} : btmprops) => {
   const dispatch = useDispatch()
   
   const handleClick = ()=>{
-    dispatch(addData({id:Date.now(), text: input, status: "red"}))
-    console.log("clicked")
-    setInput("")
+    const validTodo = input.trim();
+
+    if(validTodo.length > 0){
+      dispatch(addData({id:Date.now(), text: validTodo, status: "red"}))
+      console.log("clicked")
+      setInput("")
+    }
+    
   }  
   return (
     <div>
