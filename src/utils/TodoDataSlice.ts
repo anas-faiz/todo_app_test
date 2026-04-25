@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { loadTodo } from "./loadTodo";
 
 export interface Todo{
     id: number,
@@ -11,7 +12,7 @@ interface data{
 }
 
 const initialState : data = { 
-    value: []
+    value: loadTodo()
 }
 
 const TodoDataSlice = createSlice({
