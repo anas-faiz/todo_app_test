@@ -27,7 +27,7 @@ const TodoDataSlice = createSlice({
         updateStatus:(state,action)=>{
             const todo = state.value.find( t => t.id === action.payload);
             if(todo){
-                todo.status = "green"
+                todo.status = todo.status === "green" ? "red" : "green"
             }
         },
         removeTodo:(state,action)=>{
