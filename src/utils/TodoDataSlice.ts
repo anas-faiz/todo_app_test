@@ -9,10 +9,12 @@ export interface Todo{
 
 interface data{
     value : Todo[];
+    filter: "all" | "green" | "red"
 }
 
 const initialState : data = { 
-    value: loadTodo()
+    value: loadTodo(),
+    filter: "all"
 }
 
 const TodoDataSlice = createSlice({
@@ -33,6 +35,9 @@ const TodoDataSlice = createSlice({
             if(todo){
                 state.value = state.value.filter( t => t.id !== todo.id)
             }
+        },
+        updateFilter:(state,action) =>{
+            state.filter = action.payload
         }
     }
 })
